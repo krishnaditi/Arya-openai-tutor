@@ -114,4 +114,4 @@ python src/main.py --topic "Machine Learning" --mode chatgpt
 ## 🤝 Acknowledgements
 
 Inspired by Mr. Ranedeer AI Tutor.
-Built by krishnaditi with ❤️ for open-source learning.
+Built by Aditi Krishana with ❤️ for open-source learning.
