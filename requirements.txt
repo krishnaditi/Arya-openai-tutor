@@ -1,0 +1,3 @@
+selenium
+openai
+# llama-cpp-python
