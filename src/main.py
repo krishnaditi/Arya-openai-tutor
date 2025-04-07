@@ -1,5 +1,7 @@
 import os
 import argparse
+from langchain_community.llms import HuggingFaceHub
+
 
 def load_prompts():
     with open("prompts/base_prompt.txt") as base, \
@@ -13,16 +15,20 @@ def prepare_prompt(topic: str):
     return final_prompt
 
 def use_chatgpt(prompt: str):
-    # Replace this placeholder with browser automation or API use
     print("\n--- CHATGPT MODE ---")
     print(f"\nPrompt sent to ChatGPT:\n{prompt}")
 
-# def use_llama(prompt: str):
-#     from llama_cpp import Llama
-#     llm = Llama(model_path="models/llama-3.gguf")  # change path
-#     output = llm(prompt, max_tokens=1024)
-#     print("\n--- LLaMA OUTPUT ---")
-#     print(output['choices'][0]['text'])
+def use_llama(prompt: str):
+    print("\n--- LLaMA (via Hugging Face) MODE ---")
+
+    # Add your Hugging Face API token here
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "hugging_face_token"
+    llm = HuggingFaceHub(
+    repo_id="tiiuae/falcon-7b-instruct",  # or try mistralai/Mistral-7B-Instruct-v0.1
+    model_kwargs={"temperature": 0.7, "max_new_tokens": 512}
+)
+    response = llm(prompt)
+    print(response)
 
 def main():
     parser = argparse.ArgumentParser(description="AI Tutor CLI")
@@ -34,8 +40,8 @@ def main():
 
     if args.mode == "chatgpt":
         use_chatgpt(prompt)
-    # else:
-    #     use_llama(prompt)
+    else:
+        use_llama(prompt)
 
 if __name__ == "__main__":
     main()
