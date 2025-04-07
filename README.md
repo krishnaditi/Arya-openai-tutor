@@ -1,6 +1,6 @@
-# 🧠 Arya - Open Source AI Tutor (LLaMA + ChatGPT 3.5)
+# 🧠 Arya - Open Source AI Tutor (Langchain)
 
-**Arya** is a fully customizable AI tutor built as an open-source alternative to projects like Mr. Ranedeer. It supports both **local LLaMA models** and **ChatGPT 3.5**, allowing seamless switching between open-source and hosted models.
+**Arya** is a fully customizable AI tutor built as an open-source alternative to projects like Mr. Ranedeer. It supports both **local Langchain**, allowing seamless switching between open-source and hosted models.
 
 > ✨ Great for learners, hobbyists, and developers building custom tutors.
 
@@ -8,7 +8,7 @@
 
 ## 🚀 Features
 
-- 🔄 Switchable backends: `LLaMA (local)` or `ChatGPT (API/browser)`
+- 🔄 Switchable backends: `Langchain (hugging face token)` or `LLaMA (local)` or `ChatGPT (API/browser)`
 - 🧑‍🏫 Personalized tutor behavior (learning style, tone, level)
 - 📝 Prompt customization (via config files)
 - 🖼️ Easy to extend into CLI or web interfaces
@@ -79,6 +79,16 @@ bash
 python src/main.py --topic "Machine Learning" --mode chatgpt
 
 ```
+3. Langchain Mode:
+
+Make sure you have a hugging face token for langchain.
+
+```
+bash
+
+python src/main.py --mode llama --topic "Neural Networks"
+
+```
 
 
 ## 🧾 Customize Your Tutor
@@ -90,6 +100,7 @@ python src/main.py --topic "Machine Learning" --mode chatgpt
         prompts/user_config.txt — tone, style, academic level
 
         prompts/persona.txt — personality (e.g., fun professor, emoji use)
+        
 
 ## 🧱 Built With
 
