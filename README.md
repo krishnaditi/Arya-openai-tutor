@@ -1,6 +1,6 @@
 # 🧠 Arya - Open Source AI Tutor (Langchain)
 
-**Arya** is a fully customizable AI tutor built as an open-source alternative to projects like Mr. Ranedeer. It supports both **local Langchain**, allowing seamless switching between open-source and hosted models.
+**Arya** is a fully customizable AI tutor built as an open-source alternative to projects like [Mr. Ranedeer](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor?tab=readme-ov-file#requirements-and-compatibility). It supports both **local Langchain**, allowing seamless switching between open-source and hosted models.
 
 > ✨ Great for learners, hobbyists, and developers building custom tutors.
 
