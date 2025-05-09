@@ -56,7 +56,7 @@ pip install -r requirements.txt
 
 ## 🧠 Usage
 
->>> Run the tutor with your topic of interest:
+Run the tutor with your topic of interest:
 
 ```
 bash
@@ -68,7 +68,7 @@ python src/main.py --topic "Quantum Physics"
 
 ## 🧾 Customize Your Tutor
 
->>> Edit the following:
+Edit the following:
 
         prompts/base_prompt.txt — core behavior of the tutor
 
@@ -101,9 +101,3 @@ python src/main.py --topic "Quantum Physics"
 
 Inspired by Mr. Ranedeer AI Tutor.
 Built by Aditi Krishana with ❤️ for open-source learning.
-
-```
-
-Let me know if you want to replace or emphasize GROQ usage more directly in the README.
-
-```
