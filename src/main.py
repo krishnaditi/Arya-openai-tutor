@@ -1,7 +1,13 @@
 import os
 import argparse
-from langchain_community.llms import HuggingFaceHub
+from dotenv import load_dotenv, find_dotenv
+from groq import Groq
 
+# Load .env variables
+load_dotenv(find_dotenv(), override=True)
+
+# Initialize Groq client with API key
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def load_prompts():
     with open("prompts/base_prompt.txt") as base, \
@@ -14,34 +20,31 @@ def prepare_prompt(topic: str):
     final_prompt = f"{base_prompt}\n\nNow teach me about: {topic}\n"
     return final_prompt
 
-def use_chatgpt(prompt: str):
-    print("\n--- CHATGPT MODE ---")
-    print(f"\nPrompt sent to ChatGPT:\n{prompt}")
+def use_groq(prompt: str):
+    print("\n--- GROQ MODE ---")
+    print(f"\nPrompt sent to Groq:\n{prompt}\n")
 
-def use_llama(prompt: str):
-    print("\n--- LLaMA (via Hugging Face) MODE ---")
-
-    # Add your Hugging Face API token here
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "hugging_face_token"
-    llm = HuggingFaceHub(
-    repo_id="tiiuae/falcon-7b-instruct",  # or try mistralai/Mistral-7B-Instruct-v0.1
-    model_kwargs={"temperature": 0.7, "max_new_tokens": 512}
-)
-    response = llm(prompt)
-    print(response)
+    try:
+        chat_completion = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",  # You can use other available models too
+            messages=[
+                {"role": "system", "content": "You are a helpful AI tutor."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+        )
+        print("\nResponse from Groq:\n")
+        print(chat_completion.choices[0].message.content)
+    except Exception as e:
+        print(f"Failed to get response from Groq SDK: {e}")
 
 def main():
-    parser = argparse.ArgumentParser(description="AI Tutor CLI")
-    parser.add_argument("--topic", type=str, required=True, help="Topic to learn")
-    parser.add_argument("--mode", choices=["chatgpt", "llama"], default="chatgpt", help="Model backend")
+    parser = argparse.ArgumentParser(description="AI Tutor CLI (Groq API)")
+    parser.add_argument("--topic", type=str, required=True, help="Topic to learn about")
     args = parser.parse_args()
 
     prompt = prepare_prompt(args.topic)
-
-    if args.mode == "chatgpt":
-        use_chatgpt(prompt)
-    else:
-        use_llama(prompt)
+    use_groq(prompt)
 
 if __name__ == "__main__":
     main()
