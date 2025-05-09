@@ -56,35 +56,12 @@ pip install -r requirements.txt
 
 ## 🧠 Usage
 
-1. LLaMA Mode (local):
-
-Make sure you have a .gguf model downloaded (e.g., llama-3.gguf) and placed in a models/ folder.
+>>> Run the tutor with your topic of interest:
 
 ```
 bash
 
-python src/main.py --topic "Quantum Physics" --mode llama
-
-```
-
-2. ChatGPT Mode:
-
-If using browser automation or API (you can add this), switch mode:
-
-```
-bash
-
-python src/main.py --topic "Machine Learning" --mode chatgpt
-
-```
-3. Langchain Mode:
-
-Make sure you have a hugging face token for langchain.
-
-```
-bash
-
-python src/main.py --mode llama --topic "Neural Networks"
+python src/main.py --topic "Quantum Physics"
 
 ```
 
@@ -102,11 +79,11 @@ python src/main.py --mode llama --topic "Neural Networks"
 
 ## 🧱 Built With
 
->>> 🧩 llama-cpp-python
+ 🧩 llama-cpp-python
 
->>> 🤖 OpenAI API / Selenium (for ChatGPT)
+ 🤖 OpenAI API / Selenium (for ChatGPT)
 
->>> 🐍 Python 3.9+
+ 🐍 Python 3.9+
 
 
 ## 💡 Future Ideas
@@ -124,3 +101,9 @@ python src/main.py --mode llama --topic "Neural Networks"
 
 Inspired by Mr. Ranedeer AI Tutor.
 Built by Aditi Krishana with ❤️ for open-source learning.
+
+```
+
+Let me know if you want to replace or emphasize GROQ usage more directly in the README.
+
+```
