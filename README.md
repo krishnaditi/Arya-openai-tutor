@@ -1,6 +1,6 @@
-# 🧠 Arya - Open Source AI Tutor (Langchain)
+# 🧠 Arya - Open Source AI Tutor
 
-**Arya** is a fully customizable AI tutor built as an open-source alternative to projects like [Mr. Ranedeer](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor?tab=readme-ov-file#requirements-and-compatibility). It supports both **local Langchain**, allowing seamless switching between open-source and hosted models.
+**Arya** is a fully customizable AI tutor built as an open-source alternative to projects like [Mr. Ranedeer](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor?tab=readme-ov-file#requirements-and-compatibility). It supports a configurable backend and allows seamless adaptation for different deployment scenarios.
 
 > ✨ Great for learners, hobbyists, and developers building custom tutors.
 
@@ -8,31 +8,29 @@
 
 ## 🚀 Features
 
-- 🔄 Switchable backends: `Langchain (hugging face token)` or `LLaMA (local)` or `ChatGPT (API/browser)`
+- 🔄 Switchable backend configuration
 - 🧑‍🏫 Personalized tutor behavior (learning style, tone, level)
 - 📝 Prompt customization (via config files)
 - 🖼️ Easy to extend into CLI or web interfaces
-- 🌐 Offline capability with LLaMA
+- 🌐 Offline capability if applicable
 
 ---
 
 ## 📂 Project Structure
 
 ```plaintext
-
 Arya-openai-tutor/ 
 ├── prompts/ 
-    │ ├── base_prompt.txt 
-    │ ├── user_config.txt 
-    │ |── persona.txt 
+│   ├── base_prompt.txt 
+│   ├── user_config.txt 
+│   └── persona.txt 
 ├── src/ 
-    │ ├── main.py 
+│   └── main.py 
 ├── examples/ 
-    │ ├── sample_output.txt 
+│   └── sample_output.txt 
 ├── requirements.txt 
 ├── README.md 
-├── .gitignore
-
+└── .gitignore
 ```
 
 ## ⚙️ Installation
